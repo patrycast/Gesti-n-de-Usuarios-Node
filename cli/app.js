@@ -30,6 +30,7 @@ async function main(){
                 {title: "Agregar Usuario", value: "agregar"},
                 {title: "Listar Usuarios", value: "listar"},
                 {title: "verificar Usuarios", value: "verificar"},
+                {title:"Modificar Usuario", value:"modificar"},
                 {title: "Eliminar Usuarios", value: "eliminar"},
                 new Separator(),
                 {title: "Salir", value: "salir"},
@@ -81,6 +82,27 @@ async function main(){
                 console.log("El usuario no existe")
             }
             break;
+
+        case "modificar":
+            const usuarioModificar = await input({
+                message: "Ingrese el usuario a modificar",
+            });
+
+            const usuarioEncontrado = usuarios.find((u) => u.usuario === usuarioModificar);
+            if (!usuarioEncontrado) {
+                console.log("El usuario no existe");
+                break;
+            }
+
+            const nuevaClave = await input({
+                message: "Ingrese la nueva clave",
+            });
+
+            usuarioEncontrado.clave = nuevaClave;
+            await write([...usuarios]);
+            console.log("Clave actualizada correctamente");
+            break;
+
 
         case "eliminar":
             const usuarioEliminar= await input({
