@@ -1,0 +1,16 @@
+{
+  "name": "nucba-clase05",
+  "version": "1.0.0",
+  "description": "",
+  "main": "file.js",
+  "type": "module",
+  "scripts": {
+    "start": "node cli/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@inquirer/prompts": "^7.5.3"
+  }
+}
